@@ -2,21 +2,6 @@
 include 'php/navbar.php';
 ?>
 
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "clinic_kesehatan";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM testimonials ORDER BY created_at DESC";
-$result = $conn->query($sql);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,23 +80,30 @@ $result = $conn->query($sql);
                 <h1>What Say Our Patients!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <?php
-                if ($result->num_rows > 0) {
-                    while($row = $result->fetch_assoc()) {
-                        echo '<div class="testimonial-item text-center">';
-                        echo '<img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="' . $row["image_url"] . '" style="width: 100px; height: 100px;">';
-                        echo '<div class="testimonial-text rounded text-center p-4">';
-                        echo '<p>' . $row["message"] . '</p>';
-                        echo '<h5 class="mb-1">' . $row["name"] . '</h5>';
-                        echo '<span class="fst-italic">' . $row["profession"] . '</span>';
-                        echo '</div>';
-                        echo '</div>';
-                    }
-                } else {
-                    echo "No testimonials found";
-                }
-                $conn->close();
-                ?>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-1.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-2.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="img-fluid bg-light rounded-circle p-2 mx-auto mb-4" src="img/testimonial-3.jpg" style="width: 100px; height: 100px;">
+                    <div class="testimonial-text rounded text-center p-4">
+                        <p>Clita clita tempor justo dolor ipsum amet kasd amet duo justo duo duo labore sed sed. Magna ut diam sit et amet stet eos sed clita erat magna elitr erat sit sit erat at rebum justo sea clita.</p>
+                        <h5 class="mb-1">Patient Name</h5>
+                        <span class="fst-italic">Profession</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

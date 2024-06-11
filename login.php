@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once 'php/config.php';
-// tes
+
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
